@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apothecary | Tasmai Ayurveda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ayurveda: {
+                            light: '#f4f1ea',
+                            primary: '#6b8e23',
+                            dark: '#2c3e0b',
+                            accent: '#d4af37',
+                            earth: '#8b5a2b',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lato', sans-serif; color: #4a4a4a; background-color: #f4f1ea; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html#home" class="flex-shrink-0 flex items-center gap-2">
+                    <svg class="h-8 w-8 text-ayurveda-primary" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 3C9.4 5.2 8.1 8.1 8.1 11.2C6.3 8.8 4.1 7.4 1.8 7.2C2.1 11.3 4.2 14.2 7.7 15.6C5.2 15.3 3.1 15.8 1.7 17.1C4.3 20.3 7.8 21.3 12 20.2C16.2 21.3 19.7 20.3 22.3 17.1C20.9 15.8 18.8 15.3 16.3 15.6C19.8 14.2 21.9 11.3 22.2 7.2C19.9 7.4 17.7 8.8 15.9 11.2C15.9 8.1 14.6 5.2 12 3Z" />
+                    </svg>
+                    <span class="font-serif font-bold text-2xl text-ayurveda-dark tracking-wide">Tasmai Ayurveda</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-gray-700 hover:text-ayurveda-primary font-medium transition-colors">Home</a>
+                    <a href="services.html#services" class="text-gray-700 hover:text-ayurveda-primary font-medium transition-colors">Tab 1</a>
+                    <a href="shop.html" aria-current="page" class="text-ayurveda-primary font-medium">Tab 2</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-ayurveda-primary font-medium transition-colors">About</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-ayurveda-primary font-medium transition-colors">Contact</a>
+                    <div class="relative group">
+                        <button type="button" class="flex items-center gap-1 text-gray-700 hover:text-ayurveda-primary font-medium transition-colors focus:outline-none">
+                            More
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 top-full mt-3 w-40 rounded-lg bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="services.html#tab1" class="block px-4 py-3 text-sm text-gray-700 hover:bg-ayurveda-light hover:text-ayurveda-primary">Tab 1</a>
+                            <a href="services.html#tab2" class="block px-4 py-3 text-sm text-gray-700 hover:bg-ayurveda-light hover:text-ayurveda-primary">Tab 2</a>
+                            <a href="services.html#tab3" class="block px-4 py-3 text-sm text-gray-700 hover:bg-ayurveda-light hover:text-ayurveda-primary">Tab 3</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="hidden md:inline-block bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-6 py-2 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Book Consultation</a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-ayurveda-primary focus:outline-none" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light rounded-md">Home</a>
+                <a href="services.html#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light rounded-md">Tab 1</a>
+                <a href="shop.html" aria-current="page" class="block px-3 py-2 text-base font-medium text-ayurveda-primary hover:bg-ayurveda-light rounded-md">Tab 2</a>
+                <a href="index.html#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light rounded-md">About</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light rounded-md">Contact</a>
+                <div class="rounded-md border border-gray-100 bg-gray-50">
+                    <button id="more-menu-toggle" type="button" class="flex w-full items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-ayurveda-primary focus:outline-none" aria-expanded="false" aria-controls="more-menu">
+                        More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="more-menu" class="hidden border-t border-gray-200 bg-white">
+                        <a href="services.html#tab1" class="block px-3 py-2 text-sm text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light">Tab 1</a>
+                        <a href="services.html#tab2" class="block px-3 py-2 text-sm text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light">Tab 2</a>
+                        <a href="services.html#tab3" class="block px-3 py-2 text-sm text-gray-700 hover:text-ayurveda-primary hover:bg-ayurveda-light">Tab 3</a>
+                    </div>
+                </div>
+                <a href="index.html#contact" class="block px-3 py-2 mt-4 text-base font-medium text-white bg-ayurveda-primary hover:bg-ayurveda-dark rounded-md">Book Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <section class="bg-white py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+                <span class="text-ayurveda-primary font-semibold tracking-wider uppercase text-sm mb-3 block">Apothecary</span>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-ayurveda-dark">The Tasmai Shop</h1>
+                <div class="w-24 h-1 bg-ayurveda-accent mt-5 rounded-full mx-auto"></div>
+                <p class="mt-5 max-w-2xl mx-auto text-gray-600 leading-relaxed">Explore our curated collection of authentic Ayurvedic remedies and wellness essentials.</p>
+            </div>
+        </section>
+
+        <section id="products" class="py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 fade-in">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-serif font-bold text-ayurveda-dark">Shop all products</h2>
+                        <p class="mt-2 text-gray-600">Our current collection of Ayurvedic wellness essentials.</p>
+                    </div>
+                    <p class="text-sm text-gray-500">12 products</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Ashwagandha Churna" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Herbal+Powder'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Immunity &amp; Stress</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Ashwagandha Churna</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">₹450</span>
+                            <button type="button" onclick="addToCart('Ashwagandha Churna', 450)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=400&auto=format&fit=crop" alt="Brahmi Tailam" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Hair+Oil'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Hair Care</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Brahmi Tailam</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">₹320</span>
+                            <button type="button" onclick="addToCart('Brahmi Hair Oil', 320)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1590159763121-7c9efebfcda1?q=80&w=400&auto=format&fit=crop" alt="Triphala Guggulu" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Tablets'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Digestion</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Triphala Guggulu</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">₹250</span>
+                            <button type="button" onclick="addToCart('Triphala Tablets', 250)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Kumkumadi Serum" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Face+Serum'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Skincare</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Kumkumadi Serum</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">₹890</span>
+                            <button type="button" onclick="addToCart('Kumkumadi Serum', 890)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?q=80&w=400&auto=format&fit=crop" alt="Chyawanprash" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Chyawanprash'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Daily Wellness</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Chyawanprash</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=400&auto=format&fit=crop" alt="Shatavari Churna" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Shatavari'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Herbal Powder</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Shatavari Churna</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=400&auto=format&fit=crop" alt="Neem Capsules" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Neem+Capsules'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Herbal Supplements</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Neem Capsules</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1603909223429-69bb7101f420?q=80&w=400&auto=format&fit=crop" alt="Amla Powder" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Amla+Powder'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Herbal Powder</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Amla Powder</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=400&auto=format&fit=crop" alt="Tulsi Drops" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Tulsi+Drops'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Herbal Extract</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Tulsi Drops</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1590159763121-7c9efebfcda1?q=80&w=400&auto=format&fit=crop" alt="Triphala Churna" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Triphala+Churna'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Herbal Powder</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Triphala Churna</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=400&auto=format&fit=crop" alt="Mahanarayan Tailam" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Massage+Oil'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Massage Oil</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Mahanarayan Tailam</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                        <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?q=80&w=400&auto=format&fit=crop" alt="Aloe Vera Gel" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Aloe+Vera+Gel'">
+                        </div>
+                        <p class="text-xs text-gray-500 mb-1">Skincare</p>
+                        <h3 class="font-serif font-semibold text-gray-800">Aloe Vera Gel</h3>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span class="font-bold text-ayurveda-primary">Price on request</span>
+                            <a href="index.html#contact" class="text-ayurveda-primary hover:text-ayurveda-dark font-medium text-sm">Enquire</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <a href="index.html#home" class="font-serif text-xl text-gray-300 tracking-wide">Tasmai Ayurveda</a>
+            <p class="text-sm">© 2026 Tasmai Ayurveda. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="index.html#home" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2" role="status" aria-live="polite"></div>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const moreMenuButton = document.getElementById('more-menu-toggle');
+        const moreMenu = document.getElementById('more-menu');
+
+        menuButton.addEventListener('click', () => {
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', String(!isExpanded));
+            mobileMenu.classList.toggle('hidden', isExpanded);
+        });
+
+        moreMenuButton.addEventListener('click', () => {
+            const isExpanded = moreMenuButton.getAttribute('aria-expanded') === 'true';
+            moreMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+            moreMenu.classList.toggle('hidden', isExpanded);
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuButton.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        function addToCart(itemName, price) {
+            const toast = document.createElement('div');
+            toast.className = 'px-4 py-3 rounded-lg shadow-lg text-white text-sm font-medium bg-ayurveda-primary';
+            toast.textContent = `Added ${itemName} (₹${price}) to your cart!`;
+            document.getElementById('toast-container').appendChild(toast);
+            window.setTimeout(() => toast.remove(), 3000);
+        }
+
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(element => observer.observe(element));
+    </script>
+</body>
+</html>
