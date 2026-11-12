@@ -288,67 +288,54 @@
             </div>
 
             <!-- Product Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Product 1 -->
-                <div class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center group fade-in" style="transition-delay: 0.1s;">
-                    <div class="relative w-full aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                        <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Ashwagandha Churna" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Herbal+Powder'">
-                        <!-- Add to cart overlay -->
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button onclick="addToCart('Ashwagandha Churna', 450)" class="bg-white text-ayurveda-dark p-3 rounded-full hover:bg-ayurveda-light transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                    <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Tab.Calmind" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Herbal+Powder'">
                     </div>
-                    <div class="text-xs text-gray-500 mb-1">Immunity & Stress</div>
-                    <h3 class="font-serif font-semibold text-gray-800 mb-2">Ashwagandha Churna</h3>
-                    <div class="font-bold text-ayurveda-primary">₹450</div>
-                </div>
+                    <p class="text-xs text-gray-500 mb-1">Stress &amp; Anxiety</p>
+                    <h3 class="font-serif font-semibold text-gray-800">Tab.Calmind</h3>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="font-bold text-ayurveda-primary">₹450</span>
+                        <button type="button" onclick="addToCart('Tab.Calmind', 450)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                    </div>
+                </article>
 
-                <!-- Product 2 -->
-                <div class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center group fade-in" style="transition-delay: 0.2s;">
-                    <div class="relative w-full aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=400&auto=format&fit=crop" alt="Brahmi Hair Oil" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Hair+Oil'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button onclick="addToCart('Brahmi Hair Oil', 320)" class="bg-white text-ayurveda-dark p-3 rounded-full hover:bg-ayurveda-light transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
+                <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                    <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=400&auto=format&fit=crop" alt="Snizfree Nasal Spray" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Nasal+Spray'">
                     </div>
-                    <div class="text-xs text-gray-500 mb-1">Hair Care</div>
-                    <h3 class="font-serif font-semibold text-gray-800 mb-2">Brahmi Tailam</h3>
-                    <div class="font-bold text-ayurveda-primary">₹320</div>
-                </div>
+                    <p class="text-xs text-gray-500 mb-1">Nasal Blockage &amp; Allergy</p>
+                    <h3 class="font-serif font-semibold text-gray-800">Snizfree Nasal Spray</h3>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="font-bold text-ayurveda-primary">₹320</span>
+                        <button type="button" onclick="addToCart('Snizfree Nasal Spray', 320)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                    </div>
+                </article>
 
-                <!-- Product 3 -->
-                <div class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center group fade-in" style="transition-delay: 0.3s;">
-                    <div class="relative w-full aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                        <img src="https://images.unsplash.com/photo-1590159763121-7c9efebfcda1?q=80&w=400&auto=format&fit=crop" alt="Triphala Tablets" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Tablets'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button onclick="addToCart('Triphala Tablets', 250)" class="bg-white text-ayurveda-dark p-3 rounded-full hover:bg-ayurveda-light transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
+                <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                    <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1590159763121-7c9efebfcda1?q=80&w=400&auto=format&fit=crop" alt="Tab. Metaboost" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Tablets'">
                     </div>
-                    <div class="text-xs text-gray-500 mb-1">Digestion</div>
-                    <h3 class="font-serif font-semibold text-gray-800 mb-2">Triphala Guggulu</h3>
-                    <div class="font-bold text-ayurveda-primary">₹250</div>
-                </div>
+                    <p class="text-xs text-gray-500 mb-1">Digestion</p>
+                    <h3 class="font-serif font-semibold text-gray-800">Tab. Metaboost</h3>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="font-bold text-ayurveda-primary">₹250</span>
+                        <button type="button" onclick="addToCart('Tab. Metaboost', 250)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                    </div>
+                </article>
 
-                <!-- Product 4 -->
-                <div class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 text-center group fade-in" style="transition-delay: 0.4s;">
-                    <div class="relative w-full aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
-                        <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Kumkumadi Tailam" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Face+Serum'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <button onclick="addToCart('Kumkumadi Serum', 890)" class="bg-white text-ayurveda-dark p-3 rounded-full hover:bg-ayurveda-light transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                            </button>
-                        </div>
+                <article class="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 group fade-in">
+                    <div class="relative aspect-square mb-4 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1615556223292-8097b66fb705?q=80&w=400&auto=format&fit=crop" alt="Hand &amp; Heal Repair Cream" class="w-auto h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/f4f1ea/6b8e23?text=Hand+Repair+Cream'">
                     </div>
-                    <div class="text-xs text-gray-500 mb-1">Skincare</div>
-                    <h3 class="font-serif font-semibold text-gray-800 mb-2">Kumkumadi Serum</h3>
-                    <div class="font-bold text-ayurveda-primary">₹890</div>
-                </div>
+                    <p class="text-xs text-gray-500 mb-1">Night Care</p>
+                    <h3 class="font-serif font-semibold text-gray-800">Hand &amp; Heal Repair Cream</h3>
+                    <div class="mt-3 flex items-center justify-between">
+                        <span class="font-bold text-ayurveda-primary">₹890</span>
+                        <button type="button" onclick="addToCart('Hand & Heal Repair Cream', 890)" class="bg-ayurveda-primary hover:bg-ayurveda-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">Add to Cart</button>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
